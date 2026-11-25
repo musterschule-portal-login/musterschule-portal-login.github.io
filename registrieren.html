@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+  <title>Registrieren · Schul-Portal</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="clone.js" defer></script>
+</head>
+<body data-page="register">
+  <main class="wrap">
+    <header class="brand">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#4f46e5"/><path d="M24 11 8 19l16 8 16-8-16-8Zm-9 13v6c0 3 4.5 6 9 6s9-3 9-6v-6l-9 4.5L15 24Z" fill="#fff"/></svg>
+      <div><strong>Muster-Schule</strong><span>Schul-Portal</span></div>
+    </header>
+
+    <section class="card">
+      <h1>Konto erstellen</h1>
+      <p class="sub">Registriere dich für das Schul-Portal.</p>
+      <p class="note">Workshop-Demo: Nimm einen ausgedachten Benutzernamen und ein Passwort, das du sonst <strong>nirgends</strong> benutzt.</p>
+
+      <form id="register-form">
+        <label for="username">Benutzername</label>
+        <input id="username" name="username" type="text" autocomplete="username"
+               autocapitalize="none" autocorrect="off" spellcheck="false"
+               minlength="3" maxlength="24" pattern="[A-Za-z0-9_.\-]+" required>
+        <p class="hint">3–24 Zeichen: Buchstaben, Zahlen, _ . -</p>
+
+        <label for="new-password">Passwort</label>
+        <input id="new-password" name="new-password" type="password" autocomplete="new-password"
+               minlength="8" passwordrules="minlength: 8;" required>
+
+        <label for="new-password2">Passwort wiederholen</label>
+        <input id="new-password2" name="new-password2" type="password" autocomplete="new-password"
+               minlength="8" required>
+
+        <button class="btn primary" type="submit">Konto erstellen</button>
+      </form>
+
+      <div class="divider"><span>oder</span></div>
+      <button id="passkey-create" class="btn secondary" type="button">🔑 Passkey erstellen</button>
+      <p class="hint">Nur den Benutzernamen eingeben – dein Gerät legt den Passkey an, ganz ohne Passwort.</p>
+
+      <p id="msg" class="msg" role="status" aria-live="polite"></p>
+      <p class="alt">Schon ein Konto? <a href="index.html">Anmelden</a></p>
+    </section>
+
+    <footer>Demo-Portal · Schulprojekt Phishing-Workshop</footer>
+  </main>
+
+  <dialog id="phish-dialog" aria-labelledby="phish-title">
+    <h2 id="phish-title">🎣 Gefangen! Das war eine Phishing-Seite.</h2>
+    <p>Das hier war eine <strong>Kopie</strong> des Schul-Portals. Deine Eingaben wurden
+       <strong>nicht</strong> gespeichert und <strong>nirgendwohin</strong> gesendet.</p>
+    <p>So hättest du es merken können:</p>
+    <ul>
+      <li>Die <strong>Adresse</strong> in der Browser-Leiste ist anders als beim echten Portal.</li>
+      <li>Dein <strong>Passwort-Manager</strong> hat dir kein gespeichertes Passwort angeboten.</li>
+      <li>Dein Gerät hat dir <strong>keinen Passkey</strong> vorgeschlagen.</li>
+    </ul>
+    <p>Merke: Gib Passwörter nie nach einem Link aus einer Nachricht ein. Öffne Seiten selbst über ein Lesezeichen.</p>
+    <button id="phish-close" class="btn primary" type="button">Verstanden</button>
+  </dialog>
+</body>
+</html>

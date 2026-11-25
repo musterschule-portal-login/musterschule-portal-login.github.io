@@ -1,0 +1,181 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1b2233;
+  --muted: #5d6980;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --on-primary: #ffffff;
+  --border: #d8deea;
+  --ok: #157347;
+  --err: #b3261e;
+  --note-bg: #fff7e0;
+  --note-border: #f0d78a;
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1420;
+    --card: #171e2e;
+    --text: #e8ecf5;
+    --muted: #9aa6bd;
+    --primary: #818cf8;
+    --primary-hover: #a5b4fc;
+    --on-primary: #0f1420;
+    --border: #2b3550;
+    --ok: #4ade80;
+    --err: #f87171;
+    --note-bg: #2a2410;
+    --note-border: #6b5a1c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.wrap {
+  margin: auto;
+  width: 100%;
+  max-width: 440px;
+  padding: 24px 16px;
+}
+.wrap.wide { max-width: 640px; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.brand svg { width: 44px; height: 44px; flex: none; }
+.brand strong { display: block; font-size: 1.1rem; line-height: 1.2; }
+.brand span { color: var(--muted); font-size: .9rem; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: 0 8px 30px rgba(20, 30, 60, .08);
+}
+
+h1 { margin: 0 0 4px; font-size: 1.6rem; line-height: 1.2; }
+h2 { margin: 0 0 8px; font-size: 1.1rem; }
+.sub { margin: 0 0 20px; color: var(--muted); }
+
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 16px; /* verhindert Zoom auf dem iPhone */
+  color: var(--text);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+}
+input:focus-visible,
+.btn:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 13px 16px;
+  font: inherit;
+  font-weight: 600;
+  text-align: center;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.btn.primary { background: var(--primary); color: var(--on-primary); }
+.btn.primary:hover { background: var(--primary-hover); }
+.btn.secondary { background: transparent; color: var(--text); border-color: var(--border); margin-top: 0; }
+.btn.secondary:hover { border-color: var(--primary); }
+.btn.danger { background: transparent; color: var(--err); border-color: var(--border); margin-top: 10px; }
+.btn[disabled] { opacity: .6; cursor: not-allowed; }
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--muted);
+  font-size: .85rem;
+}
+.divider::before,
+.divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+.hint { margin: 8px 0 0; color: var(--muted); font-size: .85rem; }
+
+.note {
+  margin: 0 0 8px;
+  padding: 10px 12px;
+  font-size: .9rem;
+  background: var(--note-bg);
+  border: 1px solid var(--note-border);
+  border-radius: 12px;
+}
+
+.msg { min-height: 1.5em; margin: 14px 0 0; font-size: .95rem; }
+.msg.error { color: var(--err); }
+.msg.ok { color: var(--ok); }
+
+.alt { margin: 20px 0 0; text-align: center; color: var(--muted); }
+a { color: var(--primary); font-weight: 600; }
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.tile {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+}
+.tile h2 { font-size: .95rem; }
+.tile p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+dialog {
+  max-width: 460px;
+  width: calc(100% - 32px);
+  padding: 24px;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+dialog::backdrop { background: rgba(10, 15, 30, .6); }
+dialog ul { padding-left: 20px; }
